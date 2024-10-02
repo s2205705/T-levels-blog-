@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>T Levels in Digital Design Development and Production</title>
-    <!-- Enhanced CSS styling with Blue and White color scheme -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -122,6 +121,42 @@
         .tag:hover {
             background-color: #003366; /* Darker blue on hover */
         }
+        .info-container {
+            display: none; /* Hide info containers by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .info-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .info-content img {
+            width: 100%; /* Responsive image */
+            border-radius: 10px;
+        }
+        .info-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            background: #004080; /* Blue close button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
     </style>
 </head>
 <body>
@@ -144,7 +179,7 @@
             <div class="w3-container w3-padding">
                 <h4>Understanding T Levels</h4>
                 <p>An overview of T Levels and their significance in the digital design sector.</p>
-                <button class="w3-button" onclick="alert('T Levels are equivalent to three A Levels and are designed to give students a mix of classroom learning and on-the-job experience. For Digital Production, Design, and Development, the focus is on preparing learners to enter the world of software development, digital design, and problem-solving in tech environments. You’ll learn about coding, system development, and gain practical skills in programming, as well as working on industry-relevant projects.')">Read More</button>
+                <button class="w3-button" onclick="openInfo('info1')">Read More</button>
             </div>
         </div>
 
@@ -155,10 +190,13 @@
             <div class="w3-container w3-padding">
                 <h4>Digital Design Trends</h4>
                 <p>Explore the latest trends and innovations in digital design.</p>
-                <button class="w3-button" onclick="alert('Current trends in digital design focus heavily on user experience (UX) and user interface (UI) design. Responsive design, mobile-first approaches, and the integration of artificial intelligence are key areas of growth. T Levels help prepare students to understand the future landscape of digital design by providing foundational skills in programming, graphic design, and system development that reflect these trends. Staying ahead in digital design means combining creativity with the latest tech developments.')">Read More</button>
+                <button class="w3-button" onclick="openInfo('info2')">Read More</button>
             </div>
         </div>
     </div>
+
+    <!-- New image added before the footer -->
+    <img src="https://www.southdevon.ac.uk/wp-content/uploads/2021/02/Digital-design-T-Level-3-2-copy-scaled.jpg" alt="Digital Design in Progress" class="w3-image" style="display:block; margin:auto; margin-top: 20px;" width="800" height="533">
 
     <hr>
     <!-- Footer -->
@@ -191,14 +229,36 @@
         </div>
     </footer>
 
+    <!-- Information Modals -->
+    <div class="info-container" id="info1">
+        <div class="info-content">
+            <button class="info-close" onclick="closeInfo('info1')">Close</button>
+            <h4>Understanding T Levels</h4>
+            <img src="https://www.eastcoast.ac.uk/wp-content/uploads/2021/09/T-Level-Digital-scaled.jpg" alt="Understanding T Levels Image">
+            <p>T Levels are a new qualification designed to provide students with the skills and knowledge needed for careers in industries like digital design. They offer a mixture of classroom-based learning and practical experience, making them a valuable option for students aiming to enter the workforce directly or pursue further education.</p>
+        </div>
+    </div>
+
+    <div class="info-container" id="info2">
+        <div class="info-content">
+            <button class="info-close" onclick="closeInfo('info2')">Close</button>
+            <h4>Digital Design Trends</h4>
+            <img src="https://www.southdevon.ac.uk/wp-content/uploads/2021/02/Digital-design-T-Level-3-2-copy-scaled.jpg" alt="Digital Design Trends Image">
+            <p>The digital design field is continually evolving. Current trends emphasize user-centered design, accessibility, and the integration of artificial intelligence and machine learning in design processes. Staying updated with these trends is essential for anyone looking to excel in digital design.</p>
+        </div>
+    </div>
+
     <script>
-        // Script to open and close sidebar (if needed in future use)
-        function w3_open() {
-            document.getElementById("mySidebar").style.display = "block";
+        // Function to open information modals
+        function openInfo(infoId) {
+            document.getElementById(infoId).style.display = 'flex'; // Use flex to center the content
         }
-        function w3_close() {
-            document.getElementById("mySidebar").style.display = "none";
+
+        // Function to close information modals
+        function closeInfo(infoId) {
+            document.getElementById(infoId).style.display = 'none';
         }
     </script>
 </body>
 </html>
+
